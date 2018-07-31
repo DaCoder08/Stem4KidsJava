@@ -113,9 +113,6 @@ public class game2048{
                 }
             }
         }
-        else if(con == "d"){
-
-        }
     }
     public static void shiftOnce(String con){
         int x = 1000;

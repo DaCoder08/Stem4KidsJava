@@ -286,7 +286,7 @@ public class game2048{
         spawn();
         spawn();
         printBoard(grid);
-        while(true){
+        while(gameOver()){
             shift(ask(": "));
             spawn();
             printBoard(grid);

@@ -226,6 +226,7 @@ public class game2048{
             shiftOnce(con);
         }
         merge(con);
+        shiftOnce(con);
     }
     public static boolean gameOver(){
         for(int i = 0;i<4;i++){

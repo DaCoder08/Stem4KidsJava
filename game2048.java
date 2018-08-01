@@ -113,6 +113,29 @@ public class game2048{
                 }
             }
         }
+        else if(con.equals("s")){
+            for(int i = 0;i<4;i++){
+                if(grid[0][i] == grid[1][i]){
+                    grid[0][i] = grid[0][i]*2;
+                    grid[1][i] = 0;
+                    if(grid[2][i] == grid[3][i]){
+                        grid[2][i] = grid[2][i]*2;
+                        grid[3][i] = 0;
+                    }
+                }
+                else if(grid[1][i] == grid[2][i]){
+                    grid[1][i] = grid[1][i]*2;
+                    grid[2][i] = 0;
+                    if(grid[2][i] == grid[3][i]){
+                        grid[2][i] = grid[2][i]*2;
+                        grid[3][i] = 0;
+                    }
+                }else if(grid[2][i] == grid[3][i]){
+                    grid[2][i] = grid[2][i]*2;
+                    grid[3][i] = 0;
+                }
+            }
+        }
     }
     public static void shiftOnce(String con){
         int x = 1000;

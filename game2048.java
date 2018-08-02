@@ -6,7 +6,11 @@ public class game2048{
         for (int i = 0;i < 4;i++ ) {
             System.out.print("|");
             for (int j = 0;j < 4;j++ ) {
-                System.out.print(board[i][j]+"|");
+                int len = (board[i][j]+"").length();
+                for(int k = 0;k<5-len;k++){
+                    System.out.print(0);
+                }
+                System.out.print(grid[i][j]+"|");
             }
             System.out.println("");
         }

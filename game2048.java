@@ -1,4 +1,4 @@
-import java.util.*;
+    import java.util.*;
 public class game2048{
     static Scanner sc = new Scanner(System.in);
     static int[][] grid = new int[4][4];
@@ -270,13 +270,12 @@ public class game2048{
         return sc.nextLine();
     }
     public static void main(String[] args) {
-        // spawn();
-        // spawn();
-        grid = new int[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        spawn();
+        spawn();
         printBoard(grid);
-        while(gameOver()){
+        while(!gameOver()){
             shift(ask(": "));
-            //spawn();
+            spawn();
             printBoard(grid);
         }
         System.out.println("Game Over :(");

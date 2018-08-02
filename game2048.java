@@ -221,68 +221,64 @@ public class game2048{
         shiftOnce(con);
     }
     public static boolean gameOver(){
+        int[][] temp = grid;
         for(int i = 0;i<4;i++){
             for(int j = 0;j<4;j++){
-                if(i == 0 && j == 0){
-                    if(grid[0][0] != grid[0][1] && grid[0][0] != grid[1][0]){
-                        return true;
-                    }
-                }else if(i == 3 && j == 3){
-                    if(grid[3][3] != grid[3][2] && grid[3][3] != grid[2][3]){
-                        return true;
-                    }
-                }
-                else if(i == 0 && j == 3){
-                    if(grid[0][3] != grid[0][2] && grid[0][3] != grid[1][3]){
-                        return true;
-                    }
-                }
-                else if(i == 3 && j == 0){
-                    if(grid[3][0] != grid[2][0] && grid[3][0] != grid[3][1]){
-                        return true;
-                    }
-                }
-                else if(i == 1 && j == 0 || i == 2 && j == 0){
-                    if(grid[i][j] == grid[i-1][j] && grid[i][j] == grid[i+1][j] || grid[i][j] == grid[i][j+1]){
-                        return true;
-                    }
-                }
-                else if(i == 1 && j == 3 || i == 2 && j == 3){
-                    if(grid[i][j] == grid[i-1][j] && grid[i][j] == grid[i+1][j] || grid[i][j] == grid[i][j-1]){
-                        return true;
-                    }
-                }
-                else if(i == 0 && j == 1 || i == 0 && j == 2){
-                    if(grid[i][j] == grid[j-1][j] && grid[i][j] == grid[i+1][j] || grid[i][j] == grid[i][j+1]){
-                        return true;
-                    }
-                }
-                else if(i == 3 && j == 1 || i == 3 && j == 2){
-                    if(grid[i][j] == grid[j-1][j] && grid[i][j] == grid[i-1][j] || grid[i][j] == grid[i][j+1]){
-                        return true;
-                    }
-                }
-                else{
-                    if(grid[i][j] == grid[i+1][j] && grid[i][j] == grid[i-1][j] && grid[i][j] == grid[i][j-1] && grid[i][j] == grid[i][j+1]){
-                        return true;
-                    }
-                }
+                temp[i][j] = grid[i][j];
             }
         }
-        return false;
+        shift("w");
+        if(temp != grid){
+            for(int i = 0;i<4;i++){
+                for(int j = 0;j<4;j++){
+                    grid[i][j] = temp[i][j];
+                }
+            }
+            return false;
+        }
+        shift("s");
+        if(temp != grid){
+            for(int i = 0;i<4;i++){
+                for(int j = 0;j<4;j++){
+                    grid[i][j] = temp[i][j];
+                }
+            }
+            return false;
+        }
+        shift("a");
+        if(temp != grid){
+            for(int i = 0;i<4;i++){
+                for(int j = 0;j<4;j++){
+                    grid[i][j] = temp[i][j];
+                }
+            }
+            return false;
+        }
+        shift("d");
+        if(temp != grid){
+            for(int i = 0;i<4;i++){
+                for(int j = 0;j<4;j++){
+                    grid[i][j] = temp[i][j];
+                }
+            }
+            return false;
+        }
+        return true;
     }
     public static String ask(String ques){
         System.out.print(ques);
         return sc.nextLine();
     }
     public static void main(String[] args) {
-        spawn();
-        spawn();
+        // spawn();
+        // spawn();
+        grid = new int[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         printBoard(grid);
         while(gameOver()){
             shift(ask(": "));
-            spawn();
+            //spawn();
             printBoard(grid);
         }
+        System.out.println("Game Over :(");
     }
 }
